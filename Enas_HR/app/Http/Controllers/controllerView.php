@@ -12,55 +12,46 @@ class ControllerView extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  public function viewWEB($v, $params)
-    {
-
-        require_once __DIR__ . "/../views/web/$v.php";
-    }
-  public function viewDash($v, $params)
-  {
-
-    require_once __DIR__ . "/../views/dashboard/$v.php";
-  }
+  
 
 
   public function show_home()
   {
-    return viewWEB('index');
+    return view('web.index');
   }
   public function show_about()
   {
-    return viewWEB('about_us');
+    return view('web.about_us');
   }
 
   public function show_contact()
   {
-    return viewWEB('contuct_us');
+    return view('web.contuct_us');
   }
   public function show_jobs()
   {
-    return viewWEB('jops');
+    return view('web.jops');
   }
   public function show_details()
   {
-    return viewWEB('jops_detaiels');
+    return view('web.jops_detaiels');
   }
   public function show_our_parteners()
   {
-    return viewWEB('our_parteners');
+    return view('web.our_parteners');
   }
 
   public function show_our_serveces()
   {
-    return viewWEB('our_serveces');
+    return view('web.our_serveces');
   }
   public function show_login()
   {
-    return viewWEB('login');
+    return view('web.login');
   }
   public function show_register()
   {
-    return viewWEB('register');
+    return view('web.register');
   }
 
   }
