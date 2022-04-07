@@ -19,27 +19,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/index', [ControllerView::class, 'show_home']) {
-//     return view('web.index');
-// });
-// Route::get('/about_us', [ControllerView::class, 'show_about']) {
-//     return view('web.about_us');
-// });Route::get('/contuct_us', [ControllerView::class, 'show_contact']) {
-//     return view('web.contuct_us');
-// });Route::get('/jops', [ControllerView::class, 'show_jobs']) {
-//     return view('web.jops');
-// });Route::get('/jops_detaiels', [ControllerView::class, 'show_details']) {
-//     return view('web.jops_detaiels');
-// });Route::get('/our_parteners', [ControllerView::class, 'show_our_parteners']) {
-//     return view('web.our_parteners');
-// });Route::get('/index', [ControllerView::class,'index']) {
-//     return view('web.index');
-// });Route::get('/index', [ControllerView::class,'index']) {
-//     return view('web.index');
-// });Route::get('/index', [ControllerView::class,'index']) {
-//     return view('web.index');
-// });Route::get('/register', [ControllerView::class, 'show_register']) {
-//     return view('web.register');
-// });
+Route::get('/', function () {
+    return view('admin.layout.master');
+});
 
+
+Route::get('/login', [AuthController::class, 'showLogin']);
+Route::post('/do_login', [AuthController::class, 'login'])->name('do_login');
+
+Route::get('/create_user', [AuthController::class, 'createUser'])->name('create_user');
+Route::post('/save_user', [AuthController::class, 'register'])->name('save_user');
+
+Route::get('/home', [DashboardController::class, 'dashboard'])->name('home');
+
+Route::get('/show_all_users', [AuthController::class, 'listAll'])->name("show_users");
+Route::get('/new_category', [CategoriesController::class, 'create'])->name('new_category');
 //  admin pages
